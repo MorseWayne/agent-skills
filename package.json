@@ -2,7 +2,7 @@
   "name": "morsewayne-agent-skills",
   "version": "0.1.0",
   "private": true,
-  "description": "MorseWayne's agent skills for progressive feature learning and engineering review",
+  "description": "MorseWayne's agent skills for progressive feature learning, engineering review, and whole-codebase architecture review",
   "repository": {
     "type": "git",
     "url": "https://github.com/MorseWayne/agent-skills.git"
@@ -12,7 +12,10 @@
     "agent-skills",
     "skills",
     "coding-agent",
-    "feature-course"
+    "feature-course",
+    "architecture-review",
+    "code-review",
+    "code-quality"
   ],
   "packageManager": "npm@10.9.4"
 }

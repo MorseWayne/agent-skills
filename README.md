@@ -24,10 +24,16 @@ Install only `feature-course`:
 npx skills@latest add MorseWayne/agent-skills --skill feature-course --global --yes
 ```
 
+Install only `architecture-review`:
+
+```bash
+npx skills@latest add MorseWayne/agent-skills --skill architecture-review --global --yes
+```
+
 Equivalent full GitHub URL form:
 
 ```bash
-npx skills@latest add https://github.com/MorseWayne/agent-skills --skill feature-course --global --yes
+npx skills@latest add https://github.com/MorseWayne/agent-skills --skill architecture-review --global --yes
 ```
 
 After installation, restart your coding agent or run its reload command so it discovers the new skill.
@@ -42,6 +48,7 @@ Then use:
 
 ```text
 /skill:feature-course
+/skill:architecture-review
 ```
 
 ## Installation Guide
@@ -89,6 +96,12 @@ Install only the progressive feature learning course skill:
 npx skills@latest add MorseWayne/agent-skills --skill feature-course --global --yes
 ```
 
+Install only the architecture review skill:
+
+```bash
+npx skills@latest add MorseWayne/agent-skills --skill architecture-review --global --yes
+```
+
 Install only the Go design review skill:
 
 ```bash
@@ -116,6 +129,35 @@ npx skills@latest add MorseWayne/agent-skills --global --yes
 Then restart or reload your agent.
 
 ## Available Skills
+
+### `architecture-review`
+
+Perform a whole-codebase architecture and code quality review for AI/vibe-coded projects.
+
+Use it when you want Claude or another coding agent to autonomously inspect a repository for:
+
+- redundant or duplicated code
+- dead/unused code candidates
+- shallow modules and pass-through abstractions
+- over-engineering and fake seams
+- dependency cycles and boundary drift
+- testability and maintainability risks
+- prioritized refactoring candidates
+
+The skill is **review-only by default**: it should produce a report first and not modify production code unless you explicitly ask for implementation.
+
+Install only this skill:
+
+```bash
+npx skills@latest add MorseWayne/agent-skills --skill architecture-review --global --yes
+```
+
+Example prompt:
+
+```text
+/skill:architecture-review
+对当前项目做一次整体架构和代码质量 review：统计代码量、重复、死代码和依赖问题，找出冗余、浅模块、过度抽象、高耦合区域，并给出优先级排序的重构建议。不要先改代码，只输出报告。
+```
 
 ### `feature-course`
 
@@ -189,6 +231,10 @@ Example prompt:
 ├── go-design-reviw/
 │   └── SKILL.md
 └── skills/
+    ├── architecture-review/
+    │   ├── SKILL.md
+    │   ├── references/
+    │   └── scripts/
     └── feature-course/
         ├── SKILL.md
         └── references/
